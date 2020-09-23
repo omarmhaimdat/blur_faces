@@ -10,9 +10,11 @@
 		6C8390E02518B8ED0085330D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8390DF2518B8ED0085330D /* AppDelegate.swift */; };
 		6C8390E22518B8ED0085330D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8390E12518B8ED0085330D /* SceneDelegate.swift */; };
 		6C8390E42518B8ED0085330D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8390E32518B8ED0085330D /* ViewController.swift */; };
-		6C8390E72518B8ED0085330D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8390E52518B8ED0085330D /* Main.storyboard */; };
 		6C8390E92518B8F00085330D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8390E82518B8F00085330D /* Assets.xcassets */; };
 		6C8390EC2518B8F00085330D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C8390EA2518B8F00085330D /* LaunchScreen.storyboard */; };
+		6C8390F42518BA440085330D /* FaceDetectionHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8390F32518BA440085330D /* FaceDetectionHelpers.swift */; };
+		6C8390F62518BAD90085330D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8390F52518BAD90085330D /* CustomButton.swift */; };
+		6C8390F82518BC1D0085330D /* FaceBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8390F72518BC1D0085330D /* FaceBoxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +22,12 @@
 		6C8390DF2518B8ED0085330D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C8390E12518B8ED0085330D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6C8390E32518B8ED0085330D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6C8390E62518B8ED0085330D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C8390E82518B8F00085330D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C8390EB2518B8F00085330D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C8390ED2518B8F00085330D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C8390F32518BA440085330D /* FaceDetectionHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionHelpers.swift; sourceTree = "<group>"; };
+		6C8390F52518BAD90085330D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		6C8390F72518BC1D0085330D /* FaceBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBoxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				6C8390DF2518B8ED0085330D /* AppDelegate.swift */,
 				6C8390E12518B8ED0085330D /* SceneDelegate.swift */,
 				6C8390E32518B8ED0085330D /* ViewController.swift */,
-				6C8390E52518B8ED0085330D /* Main.storyboard */,
 				6C8390E82518B8F00085330D /* Assets.xcassets */,
 				6C8390EA2518B8F00085330D /* LaunchScreen.storyboard */,
 				6C8390ED2518B8F00085330D /* Info.plist */,
+				6C8390F32518BA440085330D /* FaceDetectionHelpers.swift */,
+				6C8390F52518BAD90085330D /* CustomButton.swift */,
+				6C8390F72518BC1D0085330D /* FaceBoxViewController.swift */,
 			);
 			path = Blur_faces;
 			sourceTree = "<group>";
@@ -126,7 +132,6 @@
 			files = (
 				6C8390EC2518B8F00085330D /* LaunchScreen.storyboard in Resources */,
 				6C8390E92518B8F00085330D /* Assets.xcassets in Resources */,
-				6C8390E72518B8ED0085330D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,22 +143,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C8390E42518B8ED0085330D /* ViewController.swift in Sources */,
+				6C8390F82518BC1D0085330D /* FaceBoxViewController.swift in Sources */,
 				6C8390E02518B8ED0085330D /* AppDelegate.swift in Sources */,
+				6C8390F42518BA440085330D /* FaceDetectionHelpers.swift in Sources */,
 				6C8390E22518B8ED0085330D /* SceneDelegate.swift in Sources */,
+				6C8390F62518BAD90085330D /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6C8390E52518B8ED0085330D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6C8390E62518B8ED0085330D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6C8390EA2518B8F00085330D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
