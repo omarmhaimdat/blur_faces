@@ -18,6 +18,7 @@ class FaceBoxViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         image.layer.masksToBounds = true
+        image.clipsToBounds = false
         return image
     }()
     
@@ -65,6 +66,9 @@ class FaceBoxViewController: UIViewController {
         inputImage.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         inputImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputImage.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        inputImage.heightAnchor.constraint(equalToConstant: (inputImage.image?.size.height)!*view.frame.width/(inputImage.image?.size.width)!).isActive = true
+        inputImage.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        inputImage.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
         saveImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         saveImage.heightAnchor.constraint(equalToConstant: 60).isActive = true
@@ -83,19 +87,21 @@ class FaceBoxViewController: UIViewController {
                 DispatchQueue.main.async {
                     guard let faceObservation = result as? VNFaceObservation else { return }
                     
-                    let scaledHeight = (self.view.frame.width ) / (self.inputImage.image?.size.width)! * (self.inputImage.image?.size.height)!
+                    let scaledHeight = ((self.inputImage.image?.size.width)! ) / (self.inputImage.image?.size.width)! * (self.inputImage.image?.size.height)!
                     
-                    let x = (self.view.frame.width ) * faceObservation.boundingBox.origin.x
+                    let x = ((self.inputImage.image?.size.width)! ) * faceObservation.boundingBox.origin.x
                     let height = scaledHeight * faceObservation.boundingBox.height
                     let y = scaledHeight * (1 -  faceObservation.boundingBox.origin.y) - height
-                    let width = (self.view.frame.width ) * faceObservation.boundingBox.width
+                    let width = ((self.inputImage.image?.size.width)! ) * faceObservation.boundingBox.width
                     
                     self.originalImage = self.inputImage.image
                     
-                    let bounds = CGRect(x: x*0.8, y: y*0.8, width: width*1.3, height: height*1.3)
+                    let bounds = CGRect(x: x, y: y, width: width, height: height)
+                    print(bounds)
                     if let originalImage = self.inputImage.image {
-                        if let resultImage = originalImage.applyBlur(rect: bounds, withRadius: 50.0) {
+                        if let resultImage = originalImage.applyBlur(rect: bounds, withRadius: 80.0) {
                             self.inputImage.image = resultImage
+                            print(resultImage)
                             self.blurredImage = resultImage
                         }
                     }

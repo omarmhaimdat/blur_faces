@@ -73,12 +73,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
             
-        if let image = info[.editedImage] as? UIImage {
+        if let image = info[.originalImage] as? UIImage {
             
             let outputVC = FaceBoxViewController()
             outputVC.modalPresentationStyle = .fullScreen
-            let newImage = image.resized(newSize: CGSize(width: 375, height: 375))
-            outputVC.inputImage.image = newImage
+            outputVC.inputImage.image = image
             dismiss(animated: true, completion: nil)
             self.present(outputVC, animated: true, completion: nil)
             
@@ -90,7 +89,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
-            imagePicker.allowsEditing = true
+            imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
